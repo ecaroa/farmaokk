@@ -1,0 +1,60 @@
+{% extends "bootstrap/base.html" %}
+{% block head %}
+{{ super() }}
+<link rel="shortcut icon" href="{{ url_for('static', filename = 'favicon.png') }}" type="image/x-icon">
+<link rel="icon" href="{{ url_for('static', filename = 'favicon.png') }}" type="image/x-icon">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/estilo.css') }}">
+
+{% endblock %}
+{% block title %}FarmaSoft{% endblock %}
+{% block navbar %}
+<div class="navbar navbar-light" style="background-color: #75bc65;" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar" ></span>
+            </button>
+            <span class="navbar-text" style="font-size: 20px;color:#ffffff;"> FarmaSoft</span>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                {%  if 'admin' == session['nombre'] %}
+                <li><a href="/users" style="font-size: 17px;color:#000000;">Usuarios</a></li>
+                <li><a href="/ventas" style="font-size: 17px;color:#000000;">Ultimas ventas</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 17px;color:#000000;">Consultas</a>
+                    <ul class="dropdown-menu" aria-labelledby="dropdown01">
+                        <li><a class="dropdown-item" href="/cliente">Producto por Cliente</a></li>
+                        <li><a class="dropdown-item" href="/producto">Cliente por Producto</a></li>
+                        <li><a class="dropdown-item" href="/mejores_clientes">Mejores Clientes</a></li>
+                        <li><a class="dropdown-item" href="/mas_vendidos">Productos más vendidos</a></li>
+                    </ul>
+                </li>
+                {% elif 'nombre' not in session %}
+                <li><a href="/login" style="font-size: 17px;color:#000000;">Login</a></li>
+                <li><a href="/registro" style="font-size: 17px;color:#000000;">Registro</a></li>
+                {% endif %}
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    {%  if 'nombre' in session %}
+                    <li><a href="/logout" style="font-size: 17px;color:#000000;">Logout </a></li>
+                    {% endif %}
+                </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block content %}
+<div class="container">
+    {% block page_content %}
+    {% endblock %}
+</div>
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+
+{% endblock %}

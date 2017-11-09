@@ -1,0 +1,105 @@
+body {
+background:  #d6d6c2;
+}
+
+
+label {
+  color:  #7a7a52;
+  font-size: 18px;
+  font-weight: normal;
+   margin-top: 10px;
+}
+
+.titulo-consulta{
+ text-align:left; margin-left:20px;
+}
+
+.legend{
+text-align:center;
+}
+
+
+.dropdown-item {
+ background:  #2f2f30;
+
+}
+.dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus, .dropdown-menu > .active > a:hover { background-color: #d6d6c2}
+
+.dropdown-menu {
+background:  #2f2f30;
+
+}
+.dropdown-menu>li>a { color: #EEF9FA}
+.navbar-inverse .navbar-nav>.active>a:hover, .navbar-inverse .navbar-nav>.active>a:focus { color: #EEF9FA}
+.dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus { color: #1D2C43}
+
+.btn-clientes{
+ margin-top:0px;
+  border: 0;
+  border-radius: 3px;
+  background:  #999966;
+
+}
+
+.btn-clientes:hover{
+background: #999966;
+}
+
+.input-clientes{
+border: 2px solid red;
+    border-radius: 4px;
+
+}
+
+.select-clientes{
+  padding:5px;
+  width: 200px;
+  background: #d6d6c2;
+  border: 1px solid #999966;
+
+}
+
+.select-clientes select{
+    padding: 5px;
+
+
+}
+
+
+table th{
+text-align: center;
+background: #c3c3a2;
+border-width: 5px;
+
+}
+table {
+background: #ebebe0;
+
+}
+
+
+table tr:hover {
+     background-color: #f5f5ef;
+     cursor: pointer;
+  }
+
+
+#wrapper {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 30px 0;
+}
+
+
+.btn {
+  border: 0;
+  border-radius: 3px;
+  margin-top: 0px;
+  background:  #999966;
+}
+.form-group {
+  margin-bottom: 0;
+  text-align: left;
+}

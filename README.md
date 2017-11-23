@@ -15,8 +15,26 @@ de usuario y clave y la posibilidad de registrarse para los usuarios nuevos.
 Una vez logueado, se muestran las últimas ventas,se pueden realizar cualquiera de las 4 consultas:Productos por Cliente,Clientes por Producto, Productos más vendidos, 
 Clientes que más gastaron.
 
-kkk
-• A grandes rasgos, ¿cómo será el flujo del programa?
-• ¿Qué estructura se utilizará para representar la información del archivo?
-• ¿Cómo se usa el programa?
-• ¿Qué clases se diseñaron?¿Por qué?
+
+Estructura del Programa
+----------------
+
+principal.py : Archivo principal de la aplicacion, contiene los enrutamientos del programa.
+
+formulario.py: Archivo que contiene todos los formularios utilizados en la aplicacion
+
+archivo.py : Archivo que lee la base de datos y busca errores
+
+templates: Carpeta que contiene los archivos htmls utilizados.
+
+csv: Carpeta que contiene la base de datos y el csv donde se guardaran los datos de los usuarios que se registraran.
+
+
+Requisitos
+------------------
+
+Tener Python 3 y Flask nuestro sistema operativo, con las siguientes extensiones:
++ Flask-Bootstrap
++ Flask_WTF
++ Flask-Script
++ VirtualEnv 

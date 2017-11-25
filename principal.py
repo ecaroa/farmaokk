@@ -235,20 +235,21 @@ def mejores_clientes():
                     if listcli == clientes['CLIENTE']:
                         gasto = float(clientes['CANTIDAD']) * float(clientes['PRECIO'])
                         gastoTotal = gastoTotal + gasto
-                masgasto.append([gastoTotal, listcli])
+                masgasto.append([listcli, gastoTotal])
             cont = 1
-            masgasto.sort(reverse = True)
+            masgasto.sort(key=lambda c: c[1], reverse=True)
+            print(masgasto)
             for datos in masgasto:
                 if cont <= form.cantidad.data:
                     consulta.append(datos)
                     cont = cont + 1
-            consulta.sort(reverse = True)
-            ## ver variables fc y ff si se usan
-            return render_template('mejores_clientes.html', form = form, fc = True, consulta = consulta, msg2 = "Importe")
+            archivo.grabar_consulta_mjor_cliente(consulta)
+            return render_template('mejores_clientes.html', form = form, fc = True, consulta = consulta, msg2 = "IMPORTE")
         return render_template('mejores_clientes.html', form = form)
     flash('Debe estar logueado para acceder')
     return redirect(url_for('login'))
 
+    
 @app.route("/mas_vendidos", methods = ('GET', 'POST'))
 def mas_vendidos():
     """En esta pagina se generara y visualizara el listado de los productos de mayor venta para realizar esto se
@@ -275,18 +276,19 @@ def mas_vendidos():
                     if listcli == clientes['PRODUCTO']:
                          cant = cant + float(clientes['CANTIDAD'])
                          codigo = clientes['CODIGO']
-                masvendio.append([int(cant), listcli, codigo])
+                masvendio.append([codigo, listcli,int(cant) ])
             cont = 1
-            masvendio.sort(reverse = True)
+            masvendio.sort(key=lambda c: c[2], reverse=True)
             for datos in masvendio:
                 if cont <= form.cantidad.data:
                     consulta.append(datos)
                     cont = cont + 1
-            consulta.sort(reverse = True)
-            return render_template('mas_vendidos.html', form = form, fc = True, consulta = consulta, msg2 = "Cantidad")
+            archivo.grabar_consulta_mas_vendidos(consulta)
+            return render_template('mas_vendidos.html', form = form, fc = True, consulta = consulta, msg2 = "CANTIDAD")
         return render_template('mas_vendidos.html', form = form)
     flash('Debe estar logueado para acceder')
     return redirect(url_for('login'))
+
 
 @app.errorhandler(404)
 def no_encontrado(e):
